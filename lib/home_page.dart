@@ -280,7 +280,21 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(flex: 1, child: Image.network(news.imgUrl)),
+                  Expanded(flex: 1, child: news.imgUrl != null
+                      ? Image.network(
+                    news.imgUrl!,
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Icon(Icons.image_not_supported, size: 50, color: Colors.grey);
+                    },
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Center(child: CircularProgressIndicator());
+                    },
+                  )
+                      : Icon(Icons.image, size: 50, color: Colors.grey)),
                   SizedBox(width: 12),
                   Expanded(
                     flex: 2,
