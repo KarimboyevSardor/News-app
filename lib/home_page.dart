@@ -236,9 +236,7 @@ class _HomePageState extends State<HomePage> {
   Widget myWidget(NewsData news) {
     return InkWell(
       onTap: () {
-        setState(() {
-
-        });
+        setState(() {});
       },
       child: Card(
         margin: EdgeInsets.all(4),
@@ -260,7 +258,7 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,
-                        fontSize: 16
+                        fontSize: 16,
                       ),
                     ),
                   ),
@@ -290,9 +288,7 @@ class _HomePageState extends State<HomePage> {
                       news.desc,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 4,
-                      style: TextStyle(
-                        fontSize: 16
-                      ),
+                      style: TextStyle(fontSize: 16),
                     ),
                   ),
                 ],
